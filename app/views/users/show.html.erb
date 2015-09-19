@@ -2,3 +2,21 @@
   <%= gravatar_for @user %>
   <%= @user.name %>
 </h1>
+
+<h2>
+  プロフィール:
+  <%= @user.profile %>
+</h2>
+
+<h2>
+  メールアドレス:
+  <%= @user.email %>
+</h2>
+
+<h2>
+  都道府県:
+  <%= @user.live %>
+</h2>
+<h2>
+<%= link_to "アカウント情報を編集する", edit_user_path %>
+</h2>
