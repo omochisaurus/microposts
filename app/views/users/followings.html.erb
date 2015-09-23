@@ -1,0 +1,6 @@
+<h1>フォロー一覧</h1>
+
+<li>
+  <%= link_to gravatar_for(current_user.following_relationships, size: 50), current_user.following_relationships %>
+  <span class="user"><%= link_to current_user.following_relationships.name, current_user.following_relationships %></span>
+</li>

@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+
+  def followings
+    @user = current_user.following_relationships.find(params[:followings_id]).followings  
+  end
   
   def show
     @user = User.find(params[:id])
@@ -18,6 +22,8 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
+
+
 
   private
 
