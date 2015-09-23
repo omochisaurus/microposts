@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
   has_secure_password
+  validates :live, presence: true
+  validates :profile, presence: true, length: { maximum: 140 }  
+
   has_many :microposts
   
   has_many :following_relationships, class_name:  "Relationship",
@@ -32,4 +35,6 @@ class User < ActiveRecord::Base
   def following?(other_user)
     following_users.include?(other_user)
   end
+
+
 end
