@@ -5,18 +5,19 @@
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
+    <%= link_to "フォロー", followings_user_path, class: "btn btn-sm btn-primary" %>
+    <%= link_to "フォロワー", followers_user_path, class: "btn btn-sm btn-primary" %>
     </section>
   </aside>
   <div class="col-md-8">
     <%= render 'follow_form' if logged_in? %>
     <% if @user.microposts.any? %>
       <h3>Microposts (<%= @user.microposts.count %>)</h3>
+            <%= link_to "プロフィールを編集する" ,edit_user_path %>
       <ol class="microposts">
         <%= render @microposts %>
       </ol>
     <% end %>
   </div>
 </div>
-<%= link_to "編集する" ,edit_user_path %>
-    <%= link_to "フォローへ", followings_user_path, class: "btn btn-lg btn-primary" %>
-    <%= link_to "フォローへ", followers_user_path, class: "btn btn-lg btn-primary" %>
+  

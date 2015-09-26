@@ -2,8 +2,23 @@
 
 
 <% @users.each do |user| %>
-<div>
-<%= gravatar_for user %>     
-      <span class="label label-info">名前:<%= user.name %></span>
+<div id="icon_name" style="float:left;">
+    <div class="col-xs-1">
+    <%= link_to gravatar_for(user), user %>
+    </div>
+    <br/>
+    <div class="">
+        <span class="label label-info">ユーザー名:<%= user.name %></span><br/>
+    </div>
 </div>
+
+<div class="panel panel-primary col-xs-offset-2">
+  <div class="panel-heading">
+    <h3 class="panel-title">プロフィール</h3>
+  </div>
+  <div class="panel-body">
+    <%= user.profile %>
+  </div>
+</div>
+    <br/>
 <% end %>
