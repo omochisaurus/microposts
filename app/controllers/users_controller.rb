@@ -8,9 +8,11 @@ class UsersController < ApplicationController
     @users = current_user.follower_users
   end
   
+
+  
   def show
     @user = User.find(params[:id])
-    @microposts = @user.microposts
+    @microposts = @user.microposts.page(params[:page]).per(10)
   end
   
   def new
