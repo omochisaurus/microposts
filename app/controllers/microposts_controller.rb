@@ -1,16 +1,27 @@
 class MicropostsController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy]
 
+def index
+      @feed_items = Micropost.all
+      @feed_items = Micropost.create
+end
+
+def show
+      @feed_items = Micropost.all
+      @feed_items = Micropost.create
+end
     
-  def create
+def create
     @micropost = current_user.microposts.build(micropost_params)
     if @micropost.save
-      flash[:success] = "Micropost created!"
+      flash[:success] = "Microposts created!"
       redirect_to root_url
     else
-      redirect_to root_url
+      @feed_items = Micropost.all
+      flash.now[:alert] = "メッセージの投稿に失敗しました。"
+      render template: "static_pages/home"
     end
-  end
+end
 
   def destroy
     @micropost = current_user.microposts.find_by(id: params[:id])
